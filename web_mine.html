@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website</h1>
+    </header>
+
+    <section id="offer">
+        <h2>Special Offer</h2>
+        <p>Get a 20% discount on all products this month! Use code <strong>SAVE20</strong> at checkout.</p>
+    </section>
+
+    <section id="user-satisfaction">
+        <h2>User Satisfaction</h2>
+        <p>We value your feedback. Please take a moment to let us know about your experience with our website.</p>
+        <form id="feedbackForm">
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+            <label for="rating">Rate the website (1 to 5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <h3>User Ratings</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody id="userRatings">
+                <!-- User ratings will be added dynamically using JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="transaction-rate">
+        <h2>Transaction Rate</h2>
+        <p>Our secure payment system ensures a smooth and reliable transaction process for all your purchases.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById("feedback").value;
+            const rating = document.getElementById("rating").value;
+
+            // You can add code here to handle the form submission, e.g., send data to a server.
+            alert(`Feedback submitted successfully!\nRating: ${rating}`);
+
+            // Update the table with user ratings
+            const userRatingsTable = document.getElementById("userRatings");
+            const newRow = userRatingsTable.insertRow();
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            cell1.textContent = "User"; // You can replace "User" with the actual username if available
+            cell2.textContent = rating;
+        });
+    </script>
+</body>
+</html>
